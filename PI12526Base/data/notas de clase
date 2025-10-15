@@ -1,0 +1,51 @@
+List<Punto2D> listaCoordenadas = Arrays.asList(
+            new Punto2D(5.0, 3.0),   
+            new Punto2D(-7.0, -2.0), 
+            new Punto2D(4.0, 6.0), 
+            new Punto2D(-8.0, -1.0)   
+        );
+        
+        
+        reducing 3 parametros:
+        1 valor inicial / cual es el elemento neutro
+        2 para cada punto saco el double que voy a realizar en la suma / que sumo?
+        3 operador de reduccion / indica que se hace una suma
+        
+        {(Cuadrante1, D1), (Cuadrante3, D3)}
+        {(Cuadrante1, 11,2), (Cuadrante3, -9.3)}
+        
+        {(Cuadrante1,5.0)}
+                {(Cuadrante1,5.0), (Cuadrante3,-7.0)}
+                	{(Cuadrante1,9.0), (Cuadrante3,-7.0)}
+                		{(Cuadrante1,9.0), (Cuadrante3,-15.0)}
+        
+        
+        primero iterativo
+        -un bucle
+        -un map
+        -vemos en que cuadrante esta
+        -cojo la coordenada "x" y lo meto en el map como clave:
+        
+        
+        
+        A?B:C EXPRESION IF REDUCIDA
+        
+        UNARYOPERATOR
+        (a, s) - aplica nx() -> (a', s')
+        
+        GROUPINGBY
+        eCadena1, eCadena2, eCadena3, .......
+        
+        HACER UN RECORD
+        ENTEROCADENA
+        
+        ITERATE
+        varias formas: 
+        -3 parametros de entrada:
+	        cual es el elemento inicial de stream
+	        como voy calculando a partir del primero 
+	        mientras se cumpla que su elemento a es menor que c
+	        
+	    
+        
+        

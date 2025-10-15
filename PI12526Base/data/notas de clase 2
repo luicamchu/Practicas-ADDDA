@@ -1,0 +1,56 @@
+
+
+1 RNF
+2 RF
+3 IT
+4 NF
+
+1->2 hay casos en los que se puede, casos mas dificiles/faciles.
+
+Asociativo pero no conmutativo
+a+b = ab
+b+a = ba
+
+ocurre cuando concateno cadenas, insetor datos en lista, en un conjunto si son iguales.
+
+el orden si importa.
+
+rnf 
+a la vuelta de la recursividad.
+rf
+voy haciendo la operacion a medida que voy haciendo la llamada recursiva
+
+rnf orden es abc -> a la rf el orden debe ser cba
+asociativo no conmutativo, si en el rnf ibamos insertando un elemento a la derecha de la cadena en el recursivo final lo voy a insertar a la derecha.
+y viceversa.
+
+La dificultad de ver esta propiedad y de cambiar el oreden.
+
+cuando hago el rnf me olvido de todo, no hay acumulador.
+
+acumulador en el paso 1 rnf -> 2 rf
+
+rf -> rnf no cambia nada. por la izquierda = por la izquierda
+rf -> it no cambia nada. por la derecha = por la derecha
+
+ejecucion
+		   next()   		  next()
+(a, (a, b)) -> (ac', (a', b')) -> (ac'', (a'', b''))
+
+ |
+ V
+first()
+
+Solucion Funcional: Siempre igual, aprenderse la estructura.
+
+Tenemos un first:
+metodo que va a dar lugar al primer elemento de la ....
+
+me creo un tupla, el metodo first, y voy calculando hasta llegar a al funcion de retorno y devuelvo.
+
+add(0, e) añadir a la derecha, e-sima
+addFirst(e) al final
+
+addAll tiene una complejidad lineal.
+Darle la vuelta a los elementos de la lista tambien añade un coste de complejidad.
+
