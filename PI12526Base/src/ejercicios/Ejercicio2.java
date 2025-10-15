@@ -41,11 +41,12 @@ public class Ejercicio2 {
 	}
 	
 	//rf
+	//metodo publico
 	public static String solRF(Integer a, Integer b) {
 		// TODO Auto-generated method stub
 		return recFinal("", a, b);
 	}
-	
+	//metodo privado
 	private static String recFinal(String ac, Integer a, Integer b) {
 		String r = null;
 		if (a < 5 || b < 5) {
@@ -70,6 +71,18 @@ public class Ejercicio2 {
 	}
 	
 	//solFuncional
-	
+	public static record Tupla(String acumulador, Integer a, Integer b) {
+		public static Tupla constructor(String ac, Integer a, Integer b) {
+			return new Tupla(ac, a, b);
+		}
+		
+		public static Tupla casoBase(Integer a, Integer b) {
+			return constructor("", a, b);
+		}
+		
+		public Tupla otroCaso() {
+			return constructor(acumulador + String.format("%d", a+b), a, b);
+		}
+	}
 	
 }
