@@ -18,7 +18,7 @@ public class Ejemplo1 {
 	public static Map<Cuadrante, Double> solucionIterativa(List<Punto2D> ls) {
 		Integer e = 0;
 		Map<Cuadrante, Double> ac = new HashMap<>();
-		while (e < ls.size()) {
+		while (!(e < ls.size())) {
 			Punto2D p = ls.get(e);
 			Cuadrante key = p.cuadrante();
 			if (ac.containsKey(key))

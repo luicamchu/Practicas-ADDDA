@@ -1,5 +1,6 @@
 package ejercicios;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Ejercicio2 {
@@ -9,20 +10,75 @@ public class Ejercicio2 {
 	//lo que hay que hacer es añadir bien los datos.
 
 	public static List<Integer> f_RNF (Integer a, Integer b) {
-		
-		return null;
+		List<Integer> lista = new LinkedList<Integer>();
+		if(a<2 || b<2) {
+			lista.add(a*b);
+			return lista;
+
+		} else if(a>b) {
+			lista = f_RNF(a%b, b-1); 
+			lista.add(a);
+			return lista;
+
+		} else {
+			lista = f_RNF(a-2, b/2);
+			lista.add(b);
+			return lista;
+
+		}
 	}
 	
 	public static List<Integer> f_it (Integer a, Integer b) {
-		return null;
+		List<Integer> lista = new LinkedList<Integer>();
+		while(!(a<2 || b<2)) {
+			if(a>b) {
+				lista.add(0, a);
+				a=a%b;
+				b=b-1;
+			} else {
+				lista.add(0, b);
+				a=a-2; 
+				b=b/2;
+			}
+		}
+		lista.add(0, a*b);
+		return lista;
 	}
 	
 	public static List<Integer> f_RF (Integer a, Integer b) {
-		return null;
+		List<Integer> l = new LinkedList<Integer>();
+		return f_RF_Privada(l, a, b);
+	}
+	
+	private static List<Integer> f_RF_Privada(List<Integer> lac, Integer a, Integer b) {
+		if(a<2 || b<2) {
+			lac.addFirst(a*b);
+			return lac;
+		} else if (a>b) {
+			lac.addFirst(a);
+			return f_RF_Privada(lac, a%b, b-1);
+		} else {
+			lac.addFirst(b);
+			return f_RF_Privada(lac, a-2, b/2);
+		}
 	}
 	
 	public static List<Integer> f_funcional (Integer a, Integer b) {
-		return null;	
+		return null;
+	}
+	
+	public static record Tupla2 (List<Integer> lac, Integer a, Integer b) {
+		public static Tupla2 constructor (List<Integer> l, Integer a, Integer b) {
+			return new Tupla2(l, a, b);
+		}
+		public List<Integer> casoBase(Integer a, Integer b) {
+			lac.add(a*b);
+			return lac;
+		}
+		
+		public List<Integer> otroCaso(Integer a, Integer b) {
+			return null;
+		}
 	}
 
 	//Ejemplo: 
