@@ -1,0 +1,107 @@
+la recursividad simple no es lo mismo que la recursividad multiple.
+
+no aplicar esquemas de recursividad simple con multiple.
+
+analizar en cual nos encontramos.
+
+simple-> solo una llamada recursiva para cada caso.
+multiple-> mas de una.
+
+esquema de transformacion simpple.
+
+esquema de transformacion multiple.
+
+
+en la recursividad multiple no aplica el concepto de recusividad no final.
+
+siempre rnf
+
+ejemplo:
+2 parametros.
+2 casos.
+pasar a codigo es trivial
+
+Hacer con memmeoria.
+evitar tener que hacer el cálculo más de una vez.
+Cada vez que se resulelve el problema se alamacena.
+Si ya esta resulto se mira, si no se resuleve y se alamacena
+
+Map
+permite cualquier tipo.
+una estructura para almacenar adecuada. Hay mas, pero elegimos esta.
+
+metodo auxliar
+tendremos un map en el que iremos almacenando los problemas que iremos resolviendo
+
+de que tipo le pongo la clave
+
+que me define mi problema.
+g sobre el entero a y b
+
+g(7,5)->40
+g(3,1)->31
+g(12,25)->101
+g(41,53)->253
+
+Cuando lo haga recursiva con memoria
+Map:
+{ ((7,5),40),
+	((3,1),31),
+	((12,25),101),
+	((41,53),253) }
+
+intpair
+sino me creo un record tupla
+de que tipo sera el resultado? de tipo entero.
+
+2 metodos:
+publico, mismos parametros, desde el cual llamaremos al metodo privado pasandole un map
+
+privado se añaden parametros
+
+1 lo primero es comprobar si esta en el map.
+	1.1 Si ya esta, directamente accedo a su valor.
+2 Si no esta en el map
+	2.1 Calculo  igual que como en la sin memoria.
+		copio y pego, cuidado con no cambiar el nombre del metodo. Cambiar y poner recursivo con memoria. No olvidar que ese metodo lleva el map como parametro
+	2.2 Una vez que tenemos calculado el resultado, Guardo en el map.
+	
+
+
+recursiva sin memoria
+traducir a codigo lo que nos encontramos en la definicion
+
+Para hacer el iterativo:
+vamos a utilizar un esquema bottom-up
+
+0,0
+
+0,1
+0,2
+
+1,0
+2,0
+
+i=0,j=0
+i=0, j=1 -> j=2 -> j=....
+
+j=0, i=1 -> i=2 -> i=....
+
+hasta llegar (a,b)mismo
+
+calculo una casilla, accedo a las otras necesarias.
+
+en el iterativo no confundir con poner recursivo
+
+cuidado con las variables: i, j
+
+no siempre se puede transformar de r -> i
+
+
+ejercicio 3
+
+recusiva multiple de 3 parametros
+
+inttrio
+trio<a,b,c>
+

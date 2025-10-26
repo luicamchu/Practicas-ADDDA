@@ -46,20 +46,20 @@ public class Ejercicio2 {
 	}
 	
 	public static List<Integer> f_RF (Integer a, Integer b) {
-		List<Integer> l = new LinkedList<Integer>();
-		return f_RF_Privada(l, a, b);
+		List<Integer> lista = new LinkedList<Integer>();
+		return f_RF_Privada(lista, a, b);
 	}
 	
-	private static List<Integer> f_RF_Privada(List<Integer> lac, Integer a, Integer b) {
+	private static List<Integer> f_RF_Privada(List<Integer> listaAcum, Integer a, Integer b) {
 		if(a<2 || b<2) {
-			lac.addFirst(a*b);
-			return lac;
+			listaAcum.addFirst(a*b);
+			return listaAcum;
 		} else if (a>b) {
-			lac.addFirst(a);
-			return f_RF_Privada(lac, a%b, b-1);
+			listaAcum.addFirst(a);
+			return f_RF_Privada(listaAcum, a%b, b-1);
 		} else {
-			lac.addFirst(b);
-			return f_RF_Privada(lac, a-2, b/2);
+			listaAcum.addFirst(b);
+			return f_RF_Privada(listaAcum, a-2, b/2);
 		}
 	}
 	
@@ -67,13 +67,13 @@ public class Ejercicio2 {
 		return null;
 	}
 	
-	public static record Tupla2 (List<Integer> lac, Integer a, Integer b) {
+	public static record Tupla2 (List<Integer> listaAcum, Integer a, Integer b) {
 		public static Tupla2 constructor (List<Integer> l, Integer a, Integer b) {
 			return new Tupla2(l, a, b);
 		}
 		public List<Integer> casoBase(Integer a, Integer b) {
-			lac.add(a*b);
-			return lac;
+			listaAcum.add(a*b);
+			return listaAcum;
 		}
 		
 		public List<Integer> otroCaso(Integer a, Integer b) {

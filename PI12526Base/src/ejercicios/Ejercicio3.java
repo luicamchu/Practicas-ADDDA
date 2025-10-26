@@ -6,6 +6,14 @@ import java.util.Map;
 import us.lsi.common.IntTrio;
 
 public class Ejercicio3 {
+	
+	public static void main(String[] args) {
+		System.out.println(iterativo(4, 6, 7));
+		System.out.println(recursivo_sin_memoria(4, 6, 7));
+		System.out.println(recursivo_con_memoria(4, 6, 7));
+		
+		
+	}
 
 	public static Long iterativo(Integer a, Integer b, Integer c) {
 		Map<IntTrio, Integer> mapABC = new HashMap<IntTrio, Integer>();

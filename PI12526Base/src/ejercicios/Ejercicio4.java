@@ -5,20 +5,60 @@ import java.math.BigInteger;
 public class Ejercicio4 {
 	
 	public static Double funcRecDouble(Integer a) {
-		return null;
+		Double r = null;
+		if(a<10) {
+			r = 5.;
+		} else {
+			r = (Math.sqrt(3*a) * funcItDouble(a-2));
+		}
+		return r;
 	}
 	
+	public static Double funcRecFinalDouble(Integer a) {
+		Double acumulador = 1.;
+		return recFinal(acumulador, a);
+	}
+	
+	private static Double recFinal(Double acumulador, Integer a) {
+		if(a<10) {
+			return acumulador*5.;
+		} else {
+			Double nuevoAcumulador = acumulador * Math.sqrt(3*a);
+			return recFinal(nuevoAcumulador, a-2);
+		}
+	}
+
+	
 	public static BigInteger funcRecBig(Integer a) {
-		
-		return null;
+		//BigInteger bigNum1 = new BigInteger("123456789012345678901234567890");
+		//long smallNum = 100L;
+		//BigInteger bigNum2 = BigInteger.valueOf(smallNum);
+		BigInteger r = BigInteger.ONE;
+		if(a<10) {
+			r = BigInteger.valueOf(5L);   // Representa el número 1;
+		} else {
+			r = BigInteger.valueOf((long) Math.sqrt(3*a)).multiply(funcRecBig(a-2));
+		}
+		return r;
 	}
 	
 	public static Double funcItDouble(Integer a) {
-		return null;
+		Double acumulador = 1.;
+		while(!(a<10)) {
+			acumulador = acumulador * Math.sqrt(3*a);
+			a-=2;
+		}
+		return acumulador * 5.;
 	}
 	
 	public static BigInteger funcItBig(Integer a) {
-		return null;
+		long smallNum = 1L;
+		BigInteger bigNum = BigInteger.valueOf(smallNum);
+		while(!(a<10)) {
+			bigNum = bigNum.multiply(BigInteger.valueOf((long) Math.sqrt(3*a)));
+			a-=2;
+		}
+		return bigNum.multiply(BigInteger.valueOf(5L));
 	}
 
 }
