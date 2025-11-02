@@ -22,7 +22,7 @@ public class Ejercicio3 {
 			for (int y = 0; y <= b; y++) {
 				for (int z = 0; z<= c; z++) {
 					if(x<3 || y<3 || z<3) {
-		 9				valor = (long) (x + Math.sqrt(y) + 2*z);
+						valor = (long) (x + Math.sqrt(y) + 2*z);
 					} else if (x%y==0) {
 						valor = (long) (mapABC.get(IntTrio.of(x-1, y/2, z/2)) + mapABC.get(IntTrio.of(x-3, y/3, z/3)));
 					} else {
