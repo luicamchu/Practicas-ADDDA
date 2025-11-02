@@ -2,6 +2,7 @@ package ejercicios;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Ejercicio2 {
 	
@@ -64,20 +65,36 @@ public class Ejercicio2 {
 	}
 	
 	public static List<Integer> f_funcional (Integer a, Integer b) {
-		return null;
+		Tupla2 t = Stream.iterate(Tupla2.casoBase(a, b), e->e.otroCaso())
+				.filter(e->(e.a()<2||e.b()<2)).findFirst().get();
+		return t.lista();
 	}
 	
-	public static record Tupla2 (List<Integer> listaAcum, Integer a, Integer b) {
+	public static record Tupla2 (List<Integer> lista, Integer a, Integer b) {
+		
 		public static Tupla2 constructor (List<Integer> l, Integer a, Integer b) {
 			return new Tupla2(l, a, b);
 		}
-		public List<Integer> casoBase(Integer a, Integer b) {
-			listaAcum.add(a*b);
-			return listaAcum;
+		
+		public static Tupla2 casoBase(Integer a, Integer b) {
+			List<Integer> aux = new LinkedList<Integer>();
+			aux.add(0, a*b);
+			return constructor(aux, a, b);
 		}
 		
-		public List<Integer> otroCaso(Integer a, Integer b) {
-			return null;
+		public Tupla2 otroCaso() {
+			Integer new_a;
+			Integer new_b;
+			if(a>b) {
+				lista.add(0, a);
+				new_a=a%b;
+				new_b=b-1;
+			} else {
+				lista.add(0, b);
+				new_a=a-2; 
+				new_b=b/2;
+			}
+			return constructor(lista, new_a, new_b);
 		}
 	}
 

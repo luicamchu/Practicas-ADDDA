@@ -18,6 +18,7 @@ public class TestEjercicio1 {
 		ls.forEach(t -> {
 			System.out.println("1) Solucion Funcional:  " + Ejercicio1.solucionFuncional(t.varA(), t.varB(), t.varC(), t.varD(), t.varE()));
 			System.out.println("2) Solucion Iterativa:  " + Ejercicio1.solucionIterativa(t.varA(), t.varB(), t.varC(), t.varD(), t.varE()));
+			System.out.println("2) Solucion Iterativa:  " + Ejercicio1.solucionIterativa2(t.varA(), t.varB(), t.varC(), t.varD(), t.varE()));
 			System.out.println("3) Solucion Rec. Final: " + Ejercicio1.solucionRecursivaFinal(t.varA(), t.varB(), t.varC(), t.varD(), t.varE()));
 			System.out.println("_________________________________________________________________________________________________");
 		});

@@ -19,6 +19,10 @@ import us.lsi.graphics.MatPlotLib;
 public class TestEjercicio5 {
 		
 	public static void main(String[] args) {
-	
+		System.out.println(Ejercicio5.ejercicio5ItDouble(9));
+		System.out.println(Ejercicio5.ejercicio5RecDouble(9));
+		System.out.println(Ejercicio5.ejercicio5RecFinalDouble(9));
+
+		
 	}
 }

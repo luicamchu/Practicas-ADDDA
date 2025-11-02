@@ -41,39 +41,43 @@ public class TestEjercicio4 {
 	public static void showCombined() {
 		MatPlotLib.showCombined("Tiempos",
 				List.of("ficheros_generados/funcRecDouble.txt",
-						"ficheros_generados/funcRecFinalDouble.txt",
+						//"ficheros_generados/funcRecFinalDouble.txt",
 						"ficheros_generados/funcItDouble.txt",
 						"ficheros_generados/funcRecBig.txt",
-						"ficheros_generados/funcRecFinalBigInteger.txt",
+						//"ficheros_generados/funcRecFinalBigInteger.txt",
 						"ficheros_generados/funcItBig.txt"), 
-				List.of("Recursiva","RecursivaFinal","Iterativa",
-						"RecursivaBI","RecursivaFinalBI","IterativaBI","Log"));
+				List.of("Recursiva",
+						//"RecursivaFinal",
+						"Iterativa",
+						"RecursivaBI",
+						//"RecursivaFinalBI",
+						"IterativaBI","Log"));
 	}
 
 	public static void main(String[] args) {
 		String nombreArchivo1 = "ficheros_generados/funcRecDouble.txt";
-		String nombreArchivo2 = "ficheros_generados/funcRecFinalDouble.txt";
+		//String nombreArchivo2 = "ficheros_generados/funcRecFinalDouble.txt";
 		String nombreArchivo3 = "ficheros_generados/funcItDouble.txt";
 		
 		String nombreArchivo4 = "ficheros_generados/funcRecBig.txt";
-		String nombreArchivo5 = "ficheros_generados/funcRecFinalBigInteger.txt";
+		//String nombreArchivo5 = "ficheros_generados/funcRecFinalBigInteger.txt";
 		String nombreArchivo6 = "ficheros_generados/funcItBig.txt";
 		
 		genData(t -> Ejercicio4.funcRecDouble(t),nombreArchivo1);
-		genData(t -> Ejercicio4.funcRecFinalDouble(t),nombreArchivo2);
+		//genData(t -> Ejercicio4.funcRecFinalDouble(t),nombreArchivo2);
 		genData(t -> Ejercicio4.funcItDouble(t),nombreArchivo3);
 		
 		genData(t -> Ejercicio4.funcRecBig(t),nombreArchivo4);
-		genData(t -> Ejercicio4.funcRecFinalBigInteger(t),nombreArchivo5);
+		//genData(t -> Ejercicio4.funcRecFinalBigInteger(t),nombreArchivo5);
 		genData(t -> Ejercicio4.funcItBig(t),nombreArchivo6);
 		
 
 		show(PowerLog.of(List.of(Pair.of(2, 0.),Pair.of(3, 0.))), nombreArchivo1,"Recursiva");
-		show(PowerLog.of(List.of(Pair.of(2, 0.),Pair.of(3, 0.))), nombreArchivo2,"RecursivaFinal");
+		//show(PowerLog.of(List.of(Pair.of(2, 0.),Pair.of(3, 0.))), nombreArchivo2,"RecursivaFinal");
 		show(PowerLog.of(List.of(Pair.of(2, 0.),Pair.of(3, 0.))), nombreArchivo3,"Iterativa");
 		
 		show(PowerLog.of(List.of(Pair.of(2, 0.),Pair.of(3, 0.))), nombreArchivo1,"RecursivaBI");
-		show(PowerLog.of(List.of(Pair.of(2, 0.),Pair.of(3, 0.))), nombreArchivo2,"RecursivaFinalBI");
+		//show(PowerLog.of(List.of(Pair.of(2, 0.),Pair.of(3, 0.))), nombreArchivo2,"RecursivaFinalBI");
 		show(PowerLog.of(List.of(Pair.of(2, 0.),Pair.of(3, 0.))), nombreArchivo3,"IterativaBI");
 		
 		//show(PowerLog.of(List.of(Pair.of(1, 0.),Pair.of(2, 1.),Pair.of(3, 0.))), nombreArchivo3,"Log");

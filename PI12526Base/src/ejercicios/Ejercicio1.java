@@ -1,6 +1,7 @@
 package ejercicios;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.UnaryOperator;
@@ -30,19 +31,28 @@ public class Ejercicio1 {
 		EnteroCadena e = EnteroCadena.of(elemA, elemS);
 		Map<Integer, List<String>> m = new HashMap<Integer, List<String>>();
 		
-		while(!(elemA < varC)) {
-			Integer nElemA = elemA + 2;
-			String nElemS = elemA%3==0 ? elemS+elemA.toString() : elemS.substring(elemA%elemS.length());
-			e=EnteroCadena.of(nElemA,nElemS);
+		while(!(elemA >= varC)) {
+			Integer newElemA = elemA + 2;
+			String newElemS = elemA%3==0 ? elemS+elemA.toString() : elemS.substring(elemA%elemS.length());
 			
+			
+			String nom = elemS + varD;
+			
+			if(nom.length() < varE) {
+				if(m.containsKey(nom.length())) {
+					List<String> ls = m.get(nom.length());
+					ls.add(nom);
+					m.put(nom.length(), ls);
+				} else {
+					List<String> ls = new LinkedList<String>();
+					ls.add(nom);
+					m.put(nom.length(), ls);
+				}
+			}
+			
+			e=EnteroCadena.of(newElemA,newElemS);
 			elemA = e.a();
 			elemS = e.s();
-			String nom = elemS + varD;
-			if(nom.length() < varE) {
-				List<String> ls = m.get(nom.length());
-				ls.add(nom);
-				m.put(nom.length(), ls);
-			}
 		}
 		return m;
 	}
@@ -51,16 +61,22 @@ public class Ejercicio1 {
 		EnteroCadena e = EnteroCadena.of(varA, varB);
 		Map<Integer, List<String>> m = new HashMap<Integer, List<String>>();
 		
-		while(!(e.a() < varC)) {
+		while((e.a() < varC)) {
+			String nom = e.s() + varD;
+			if(nom.length() < varE) {
+				if(m.containsKey(nom.length())) {
+					List<String> ls = m.get(nom.length());
+					ls.add(nom);
+					m.put(nom.length(), ls);
+				} else {
+					List<String> ls = new LinkedList<String>();
+					ls.add(nom);
+					m.put(nom.length(), ls);
+				}
+			}
 			Integer elemA = e.a() + 2;
 			String elemS = e.a()%3==0 ? e.s()+e.a().toString() : e.s().substring(e.a()%e.s().length());
 			e=EnteroCadena.of(elemA,elemS);
-			String nom = elemS + varD;
-			if(nom.length() < varE) {
-				List<String> ls = m.get(nom.length());
-				ls.add(nom);
-				m.put(nom.length(), ls);
-			}
 		}
 		
 		return m;
@@ -74,21 +90,27 @@ public class Ejercicio1 {
 	}
 	
 	private static Map<Integer,List<String>> recursivaFinal(EnteroCadena e, Map<Integer, List<String>> m, Integer varC, String varD, Integer varE) {
-		Integer elemA = e.a() + 2;
-		String elemS = e.a()%3==0 ? e.s()+e.a().toString() : e.s().substring(e.a()%e.s().length());
-		e=EnteroCadena.of(elemA,elemS);
-		String nom = elemS + varD;
-		
-		if (e.a() < varC) {
-			if(nom.length() < varE) {
+		// 1. CASO BASE (Predicado de parada del Stream.iterate)
+		if (e.a() >= varC) {
+	        return m; // Retorna el mapa si la condición de continuación es falsa
+		}
+		// 2. PASO RECURSIVO: PROCESAR EL ESTADO ACTUAL (e)
+		String nom = e.s() + varD;
+		if(nom.length() < varE) {
+			if(m.containsKey(nom.length())) {
 				List<String> ls = m.get(nom.length());
 				ls.add(nom);
 				m.put(nom.length(), ls);
 			} else {
-				return recursivaFinal(e, m, varC, varD, varE);
+				List<String> ls = new LinkedList<String>();
+				ls.add(nom);
+				m.put(nom.length(), ls);
 			}
 		}
-		return m;
+		Integer elemA = e.a() + 2;
+		String elemS = e.a()%3==0 ? e.s()+e.a().toString() : e.s().substring(e.a()%e.s().length());
+		e=EnteroCadena.of(elemA,elemS);
+		return recursivaFinal(e, m, varC, varD, varE);
 	}
 
 }
