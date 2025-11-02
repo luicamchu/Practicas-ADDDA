@@ -7,6 +7,7 @@ import java.util.stream.IntStream;
 
 import org.apache.commons.math3.fitting.WeightedObservedPoint;
 
+import ejercicios.Ejercicio4;
 import ejercicios.Ejercicio5;
 import us.lsi.common.Pair;
 import us.lsi.common.String2;
@@ -19,6 +20,13 @@ import us.lsi.graphics.MatPlotLib;
 public class TestEjercicio5 {
 		
 	public static void main(String[] args) {
+		System.out.println(Ejercicio4.funcRecDouble(9));
+		System.out.println(Ejercicio4.funcRecFinalDouble(9));
+		System.out.println(Ejercicio4.funcItDouble(9));
+		System.out.println(Ejercicio4.funcRecBig(9));
+		System.out.println(Ejercicio4.funcRecFinalBigInteger(9));
+		System.out.println(Ejercicio4.funcItBig(9));
+		
 		System.out.println(Ejercicio5.ejercicio5ItDouble(9));
 		System.out.println(Ejercicio5.ejercicio5RecDouble(9));
 		System.out.println(Ejercicio5.ejercicio5RecFinalDouble(9));

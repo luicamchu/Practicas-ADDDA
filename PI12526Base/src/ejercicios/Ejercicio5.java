@@ -17,10 +17,12 @@ public class Ejercicio5 {
 		if(n<=6) {
 			return 1.;
 		} else {
-			Double acumuladorAnterior = ejercicio5RecDouble(n-1);
-			return 1. + (acumuladorAnterior * log2(n-1));
+			return 1. + (ejercicio5RecDouble(n-1) * log2(n-1));
 		}
 	}
+	
+	//La suma de 1 rompe el patrón de acumulación simple requerido para esta técnica.
+	
 	
 	public static Double ejercicio5RecFinalDouble(Integer n) {
 		Double acumulador = 1.;
