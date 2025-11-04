@@ -20,7 +20,7 @@ import us.lsi.graphics.MatPlotLib;
 
 public class TestEjercicio4 {
 	private static Integer nMin = 100; // n mínimo para el cálculo de potencia
-	private static Integer nMax = 100000; // n máximo para el cálculo de potencia
+	private static Integer nMax = 10000; // n máximo para el cálculo de potencia
 	private static Integer razon = 3330; // incremento en los valores de n del cálculo de potencia
 	private static Integer nIter = 50; // número de iteraciones para cada medición de tiempo
 	private static Integer nIterWarmup = 10000; // número de iteraciones para warmup

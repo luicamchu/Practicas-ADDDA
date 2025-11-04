@@ -9,7 +9,7 @@ public class Ejercicio4 {
 		if(a<10) {
 			r = 5.;
 		} else {
-			r = (Math.sqrt(3*a) * funcItDouble(a-2));
+			r = (Math.sqrt(3*a) * funcRecDouble(a-2));
 		}
 		return r;
 	}
