@@ -5,13 +5,11 @@ import java.math.BigInteger;
 public class Ejercicio4 {
 	
 	public static Double funcRecDouble(Integer a) {
-		Double r = null;
 		if(a<10) {
-			r = 5.;
+			return 5.;
 		} else {
-			r = (Math.sqrt(3*a) * funcRecDouble(a-2));
+			return (Math.sqrt(3*a) * funcRecDouble(a-2));
 		}
-		return r;
 	}
 	
 	public static Double funcRecFinalDouble(Integer a) {
