@@ -8,9 +8,6 @@ import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import us.lsi.geometria.Cuadrante;
-import us.lsi.geometria.Punto2D;
-
 
 public class Ejercicio1 {
 
